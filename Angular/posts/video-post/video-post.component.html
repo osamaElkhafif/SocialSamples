@@ -1,0 +1,11 @@
+<div #videoWrapper class="videoWrapper" (click)="videoWrapperclicked()">
+  <video #video preload="metadata"></video>
+  <div class="videoControllersWrapper">
+    <app-video-controllers
+      [videoWrapper]="videoWrapper"
+      [hls]="hls"
+    ></app-video-controllers>
+  </div>
+</div>
+<!-- <button (click)="onClicked()"></button>
+<div>{{ hls.currentLevel }}</div> -->

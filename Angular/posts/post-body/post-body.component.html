@@ -1,0 +1,31 @@
+<div class="postBodyWrapper">
+  <div class="postText">
+    {{ postModel.postText }}
+  </div>
+  <ng-container [ngSwitch]="postModel.postType">
+    <ng-container *ngSwitchCase="2">
+      <app-images-post></app-images-post>
+    </ng-container>
+    <ng-container *ngSwitchCase="1">
+      <app-video-post></app-video-post>
+      <!-- videeeeeo -->
+    </ng-container>
+    <ng-container *ngSwitchCase="3"> </ng-container>
+    <ng-container *ngSwitchDefault>
+      <div class="sharedPostWrapper">
+        <div class="sharedPostInnerWrapper">
+          <div *ngIf="!postModel.actualPost.accessAllowed">
+            <app-access-not-allowed></app-access-not-allowed>
+          </div>
+          <app-post-item
+            *ngIf="postModel.actualPost.accessAllowed"
+            [isShared]="true"
+            [sharedPostModel]="postModel.actualPost"
+          ></app-post-item>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <app-interactions-info></app-interactions-info>
+  <app-interact-to-post></app-interact-to-post>
+</div>

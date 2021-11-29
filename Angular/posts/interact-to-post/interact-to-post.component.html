@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <app-interaction-box
+    (interactionTypeClicked)="interactionTypeClicked($event)"
+    *ngIf="showInteractionBox"
+  ></app-interaction-box>
+  <div ngxLongPress2 [minTime]="500" (onLongPress)="longPressed()">
+    <i
+      class="fas"
+      [ngClass]="{
+        'fa-thumbs-up':
+          postModel.userInteractionToPostType == 1 ||
+          postModel.userInteractionToPostType == 7,
+        'fa-angry': postModel.userInteractionToPostType == 2,
+        'fa-grin-squint': postModel.userInteractionToPostType == 3,
+        'fa-sad-tear': postModel.userInteractionToPostType == 4,
+        'fa-heart': postModel.userInteractionToPostType == 5,
+        'fa-surprise': postModel.userInteractionToPostType == 6,
+        colorLove: postModel.userInteractionToPostType == 5,
+        colorEmoji:
+          postModel.userInteractionToPostType != 5 &&
+          postModel.userInteractionToPostType != 7
+      }"
+    ></i>
+    <div
+      [ngClass]="{
+        colorLove: postModel.userInteractionToPostType == 5,
+        colorEmoji:
+          postModel.userInteractionToPostType != 5 &&
+          postModel.userInteractionToPostType != 7
+      }"
+    >
+      <ng-container [ngSwitch]="postModel.userInteractionToPostType">
+        <ng-container *ngSwitchCase="1">{{ "Like" | translate }}</ng-container>
+        <ng-container *ngSwitchCase="2">{{ "Angry" | translate }}</ng-container>
+        <ng-container *ngSwitchCase="3">{{ "Haha" | translate }}</ng-container>
+        <ng-container *ngSwitchCase="4">{{ "Sad" | translate }}</ng-container>
+        <ng-container *ngSwitchCase="5">{{ "Love" | translate }}</ng-container>
+        <ng-container *ngSwitchCase="6">{{ "Wow" | translate }}</ng-container>
+        <ng-container *ngSwitchCase="7">{{ "Like" | translate }}</ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <ng-container *ngIf="!isForComments">
+    <div (click)="getComments()">
+      <i class="fas fa-comment"></i>
+      <div>{{ "Comment" | translate }}</div>
+    </div>
+    <div
+      (click)="sharePost()"
+      *ngIf="
+        (postModel.isShared == false && postModel.postPrivacy == 1) ||
+        (postModel.isShared == true && postModel.actualPost.postPrivacy == 1)
+      "
+    >
+      <i class="fas fa-share"></i>
+      <div>{{ "Share" | translate }}</div>
+    </div>
+  </ng-container>
+</div>

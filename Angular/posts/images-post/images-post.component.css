@@ -1,0 +1,45 @@
+/* mat-grid-tile {
+  background-color: rebeccapurple;
+} */
+
+.wrapper {
+  width: 50%;
+}
+
+app-app-image-with-acess-token {
+  height: 100%;
+  width: 100%;
+}
+/* mat-grid-tile {
+  position: relative;
+} */
+
+.otherImagesNumbers {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--C3P3);
+  padding: 10px;
+  color: var(--C3P3T);
+  opacity: 0.8;
+  border-radius: 8px;
+}
+
+img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.aloneImage {
+  object-fit: unset;
+  height: auto;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    width: 100%;
+  }
+}

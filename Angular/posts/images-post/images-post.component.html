@@ -1,0 +1,65 @@
+<div class="wrapper" (click)="imagesClicked()">
+  <ng-container *ngIf="imagesToShowUrls.length == 1">
+    <ng-container *ngIf="postModel.postPrivacy != 1">
+      <app-app-image-with-acess-token
+        class="aloneImage"
+        [imageSrc]="postModel.postImagesModels[0].imageUrl"
+      ></app-app-image-with-acess-token>
+    </ng-container>
+    <ng-container *ngIf="postModel.postPrivacy == 1">
+      <img class="aloneImage" [src]="postModel.postImagesModels[0].imageUrl" />
+    </ng-container>
+  </ng-container>
+
+  <mat-grid-list *ngIf="imagesToShowUrls.length > 1" [cols]="2" rowHeight="1:1">
+    <mat-grid-tile
+      *ngIf="showImage[0]"
+      [rowspan]="imagesToShowRowSpan[0]"
+      [colspan]="imagesToShowColSpan[0]"
+    >
+      <ng-container *ngIf="postModel.postPrivacy != 1">
+        <app-app-image-with-acess-token
+          [imageSrc]="postModel.postImagesModels[0].imageUrl"
+        ></app-app-image-with-acess-token>
+      </ng-container>
+      <ng-container *ngIf="postModel.postPrivacy == 1">
+        <img [src]="postModel.postImagesModels[0].imageUrl" />
+      </ng-container>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      *ngIf="showImage[1]"
+      [rowspan]="imagesToShowRowSpan[1]"
+      [colspan]="imagesToShowColSpan[1]"
+    >
+      <ng-container *ngIf="postModel.postPrivacy != 1">
+        <app-app-image-with-acess-token
+          [imageSrc]="postModel.postImagesModels[1].imageUrl"
+        ></app-app-image-with-acess-token>
+      </ng-container>
+      <ng-container *ngIf="postModel.postPrivacy == 1">
+        <img [src]="postModel.postImagesModels[1].imageUrl" />
+      </ng-container>
+    </mat-grid-tile>
+    <mat-grid-tile
+      *ngIf="showImage[2]"
+      [rowspan]="imagesToShowRowSpan[2]"
+      [colspan]="imagesToShowColSpan[2]"
+    >
+      <div
+        class="otherImagesNumbers"
+        *ngIf="postModel.postImagesModels.length > 3"
+      >
+        + {{ postModel.postImagesModels.length - 3 }}
+      </div>
+      <ng-container *ngIf="postModel.postPrivacy != 1">
+        <app-app-image-with-acess-token
+          [imageSrc]="postModel.postImagesModels[2].imageUrl"
+        ></app-app-image-with-acess-token>
+      </ng-container>
+      <ng-container *ngIf="postModel.postPrivacy == 1">
+        <img [src]="postModel.postImagesModels[2].imageUrl" />
+      </ng-container>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

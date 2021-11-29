@@ -1,0 +1,14 @@
+<!-- <p>post-item works!</p>
+<p>it works</p>
+<div>it really works</div>
+<div>{{ itemData.postOwnerFullName }}</div>
+<app-user-profile-picture
+  [userProfilePictureData]="userProfilePictureDataForThis"
+></app-user-profile-picture> -->
+<div class="postItemWrapper">
+  <app-post-header></app-post-header>
+  <app-post-body></app-post-body>
+  <div *ngIf="!isShared" class="divider"></div>
+</div>
+<!-- {{ testClass.one }}
+<div>/parent</div> -->

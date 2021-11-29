@@ -1,0 +1,15 @@
+.postItemWrapper {
+  padding: 20px;
+}
+.divider {
+  margin-top: 10px;
+  height: 2px;
+  background-color: var(--FCDivider);
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  .postItemWrapper {
+    padding: 3px;
+  }
+}

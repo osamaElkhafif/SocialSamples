@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div *ngIf="interactionsCount != 0" class="numberOfInteractions T15">
+    {{ interactionsCount }}
+  </div>
+  <div *ngIf="interactionsCount != 0" class="interactionsTypesWrapper">
+    <div
+      class="iconWrapper"
+      *ngFor="let interactionType of interactionTypes; let i = index"
+      [ngStyle]="{
+        position: 'relative',
+        'z-index': 60 / (i + 1),
+        transform:
+          'translateX(' +
+          (this.translateService.currentLang == 'en' ? '-' : '') +
+          5 * i +
+          'px)'
+      }"
+    >
+      <i
+        class="fas T15"
+        [ngClass]="{
+          'fa-thumbs-up': interactionType == 1,
+          'fa-angry': interactionType == 2,
+          'fa-grin-squint': interactionType == 3,
+          'fa-sad-tear': interactionType == 4,
+          'fa-heart': interactionType == 5,
+          'fa-surprise': interactionType == 6,
+          colorLove: interactionType == 5,
+          colorEmoji: interactionType != 5 && interactionType != 7
+        }"
+      ></i>
+    </div>
+  </div>
+  <div class="expanded"></div>
+  <div fxLayout="row" *ngIf="!isCommentModelAsPostModel">
+    <i *ngIf="postModel.commentsCount != 0" class="fas fa-comment T15"></i>
+    <div *ngIf="postModel.commentsCount != 0" class="T15">
+      {{ postModel.commentsCount }}
+    </div>
+    <i *ngIf="postModel.sharesCount != 0" class="fas fa-share T15"></i>
+    <div *ngIf="postModel.sharesCount != 0" class="T15">
+      {{ postModel.sharesCount }}
+    </div>
+  </div>
+</div>

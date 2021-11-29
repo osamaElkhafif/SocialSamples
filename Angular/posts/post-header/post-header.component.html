@@ -1,0 +1,33 @@
+<div class="header">
+  <div (click)="userProfileClicked()">
+    <app-user-profile-picture
+      class="profilePicture"
+      [userProfilePictureData]="userProfilePictureDataForThis"
+    ></app-user-profile-picture>
+  </div>
+  <div class="postData">
+    <div>{{ postModel.postOwnerFullName }}</div>
+    <div class="dateAndPrivacyContainer">
+      <app-post-privacy
+        [postPrivacy]="postModel.postPrivacy"
+      ></app-post-privacy>
+      <div class="date">
+        {{
+          postModel.datePosted
+            | date
+              : "short"
+              : "UTC +" +
+                  timeZoneHours +
+                  ":" +
+                  (timeZoneMintes > 9 ? timeZoneMintes : "0" + timeZoneMintes)
+              : (this.translate.currentLang == "ar" ? "ar-EG" : "en")
+        }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div>{{ postModel.postId }}</div> -->
+<!-- <div>child</div>
+<div>{{ postModel.postId }}</div>
+<div>{{ testClass.one }}</div> -->

@@ -1,0 +1,17 @@
+video {
+  width: 100%;
+  height: auto;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.videoControllersWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}

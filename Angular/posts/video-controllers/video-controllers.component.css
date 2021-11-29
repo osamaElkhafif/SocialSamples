@@ -1,0 +1,150 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+i {
+  /* position: absolute; */
+  color: var(--C1P1);
+}
+
+.fa-play,
+.fa-pause {
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  z-index: 5;
+}
+
+.fas {
+  color: var(--C3P3T);
+}
+
+.iconsPlayingWrapper {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+  height: 100px;
+  width: 100%;
+  transform: translate(-50%, -80%);
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+.fa-backward {
+  top: 50%;
+  left: 30%;
+  font-size: 20px;
+  z-index: 5;
+}
+
+.fa-forward {
+  top: 50%;
+  left: 70%;
+  font-size: 20px;
+  z-index: 5;
+}
+
+.backwardRight {
+  left: unset;
+  right: 30%;
+}
+
+.forowardRight {
+  left: unset;
+  right: 70%;
+}
+
+.expanded {
+  flex-grow: 1;
+  background-color: blueviolet;
+  opacity: 0.3;
+  position: relative;
+}
+.timeWrapper {
+  background-color: var(--C3P3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timeElapsed,
+.videoDuration {
+  margin: 0px 5px;
+  color: var(--C3P3T);
+}
+
+.progressBarWrapper {
+  flex-grow: 1;
+  position: relative;
+  margin: 0px 10px;
+  height: 3px;
+}
+
+.buffered,
+.timeNow,
+.base {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  left: var(--Left0px0);
+  right: var(--Right0px0);
+}
+
+.buffered {
+  width: 0%;
+  background-color: var(--C4S1);
+  z-index: 2;
+}
+
+.timeNow {
+  width: 0%;
+  background-color: var(--C2P2);
+  z-index: 3;
+}
+.base {
+  width: 100%;
+  background-color: var(--C3P3T);
+  z-index: 1;
+}
+
+.optionsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--C3P3);
+}
+
+.qualities {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.fa-expand,
+.fa-compress {
+  cursor: pointer;
+  position: unset;
+  color: var(--C3P3T);
+  margin: 5px 10px;
+}
+
+.qualities > div {
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: var(--C2P2);
+  color: aliceblue;
+  padding: 5px;
+}
+
+.activeLevel {
+  background-color: var(--C4S1) !important;
+  border: 1px var(--C4S1T) solid;
+}

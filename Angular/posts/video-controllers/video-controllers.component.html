@@ -1,0 +1,80 @@
+<div class="wrapper" *ngIf="show" (click)="wrapperClicked($event)">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-around center"
+    class="iconsPlayingWrapper"
+  >
+    <i
+      class="fas fa-backward"
+      (click)="seekBackward($event)"
+      [ngClass]="{
+        backwardRight: translate.currentLang == 'ar',
+        flip: translate.currentLang == 'ar'
+      }"
+    ></i>
+    <i
+      #play
+      class="fas"
+      [ngClass]="{
+        'fa-play': !isPlaying,
+        'fa-pause': isPlaying,
+        flip: translate.currentLang == 'ar'
+      }"
+      (click)="playIconClicked($event)"
+    ></i>
+    <i
+      class="fas fa-forward"
+      (click)="seekForoward($event)"
+      [ngClass]="{
+        forowardRight: translate.currentLang == 'ar',
+        flip: translate.currentLang == 'ar'
+      }"
+    ></i>
+  </div>
+  <div class="expanded"></div>
+  <div class="optionsWrapper">
+    <div class="qualities">
+      <div
+        (click)="changeVideoQuality(-1, $event)"
+        [ngClass]="{
+          activeLevel: isAutoAdaptive
+        }"
+      >
+        auto
+      </div>
+      <div
+        *ngFor="let level of hlsLevels; let i = index"
+        (click)="changeVideoQuality(i, $event)"
+        [ngClass]="{
+          activeLevel: hls.currentLevel == i
+        }"
+      >
+        {{ level.height.toString() }}
+      </div>
+    </div>
+    <div style="flex-grow: 1"></div>
+    <i
+      class="fas"
+      [ngClass]="{
+        'fa-expand': !isInFullScreenMode,
+        'fa-compress': isInFullScreenMode
+      }"
+      (click)="goToFullScreen($event)"
+    ></i>
+  </div>
+  <div class="timeWrapper">
+    <div class="timeElapsed">{{ timeElapsed }}</div>
+    <div class="progressBarWrapper">
+      <div
+        class="buffered"
+        [ngStyle]="{ width: percentageBuffered + '%' }"
+      ></div>
+      <div
+        class="timeNow"
+        [ngStyle]="{ width: positionPercentage + '%' }"
+      ></div>
+      <div class="base"></div>
+    </div>
+    <div class="videoDuration">{{ duration }}</div>
+  </div>
+</div>

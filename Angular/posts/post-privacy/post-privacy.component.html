@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="postPrivacy">
+  <div class="wrapper" *ngSwitchCase="1">
+    <i class="fas fa-globe-europe"></i>
+  </div>
+  <div class="wrapper" *ngSwitchCase="2">
+    <i class="fas fa-user-friends"></i>
+  </div>
+  <div class="wrapper" *ngSwitchCase="3">
+    <i class="fas fa-lock"></i>
+  </div>
+</ng-container>

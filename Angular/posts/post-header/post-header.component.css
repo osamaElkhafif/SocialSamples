@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.postData {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+}
+
+.dateAndPrivacyContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+
+.date {
+  padding: 0px 4px;
+}

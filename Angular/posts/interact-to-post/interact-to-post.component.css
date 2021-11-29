@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+
+.wrapper > div {
+  cursor: pointer;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+i {
+  padding: 0px 5px;
+}
+
+.colorLove {
+  color: var(--FCLove);
+}
+.colorEmoji {
+  color: var(--FCEmoji);
+}
+
+app-interaction-box {
+  position: absolute;
+  bottom: 110%;
+  left: 0px;
+  z-index: 100;
+}
